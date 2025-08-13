@@ -8,6 +8,7 @@ from django.urls import path, include
 urlpatterns = [
     # Admin interface
     path('admin/', admin.site.urls),
+    path('', include('apps.lectures.urls')),
 
     # API documentation
     # path('api/schema/', SpectacularAPIView.as_view(), name='schema'),

@@ -1,0 +1,27 @@
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+
+# Environment variables
+.env
+
+# Django stuff:
+*.log
+*.pot
+*.py[cod]
+db.sqlite3
+media/
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# PyCharm
+.idea/

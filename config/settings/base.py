@@ -52,6 +52,7 @@ LOCAL_APPS = [
     'apps.voice',
     'apps.payments',
     'apps.activity',
+    'apps.lectures'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -67,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -95,7 +97,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'elb',
         'USER': 'postgres',
-        'PASSWORD': '2288',
+        'PASSWORD': '1234',
         'HOST': 'localhost',   # or the IP of your PostgreSQL server
         'PORT': '5432',        # default PostgreSQL port
     }
@@ -138,7 +140,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # AUTH_USER_MODEL = 'users.User'
 
 # # Site ID
-# SITE_ID = 1
+SITE_ID = 1
 
 # # REST Framework settings
 # REST_FRAMEWORK = {
@@ -191,16 +193,15 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # CORS_ALLOW_CREDENTIALS = True
 
 # # Allauth settings
-# AUTHENTICATION_BACKENDS = (
-#     'django.contrib.auth.backends.ModelBackend',
-#     'allauth.account.auth_backends.AuthenticationBackend',
-# )
+AUTHENTICATION_BACKENDS = (
+     'django.contrib.auth.backends.ModelBackend',
+     'allauth.account.auth_backends.AuthenticationBackend',
+ )
 
-# ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-# ACCOUNT_USERNAME_REQUIRED = False
-# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_LOGIN_METHODS = {'email'}
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
 
 # # Email settings
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
