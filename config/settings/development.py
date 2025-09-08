@@ -14,3 +14,8 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 ]
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
