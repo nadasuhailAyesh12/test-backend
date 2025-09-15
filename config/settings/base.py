@@ -156,8 +156,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # # Default primary key field type
 # DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# # Custom user model
-# AUTH_USER_MODEL = 'users.User'
+ # Custom user model
+AUTH_USER_MODEL = 'users.User'
 
 # # Site ID
 SITE_ID = 1

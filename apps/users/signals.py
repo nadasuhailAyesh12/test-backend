@@ -5,6 +5,17 @@
 # from django.db.models.signals import post_save, post_delete
 # from django.dispatch import receiver
 # from django.contrib.auth import get_user_model
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from .models import User, Teacher, Student
+
+@receiver(post_save, sender=User)
+def create_role_profile(sender, instance, created, **kwargs):
+    if created:
+        if instance.role == 'teacher' and not hasattr(instance, 'profile_teacher'):
+            Teacher.objects.create(user=instance)
+        elif instance.role == 'student' and not hasattr(instance, 'student'):
+            Student.objects.create(user=instance)
 
 # from .models import UserProfile
 # from .tasks import (

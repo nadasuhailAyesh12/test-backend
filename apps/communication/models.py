@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.conf import settings
 # Create your models here.
 
 
@@ -27,7 +27,7 @@ class Notification(models.Model):
         ('announcement', 'Announcement'),
     ]
     id = models.UUIDField(primary_key=True, editable=False)
-    user = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name='notifications')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='communication_notifications')   
     title = models.CharField(max_length=255)
     body = models.JSONField(blank=True, null=True)
     action_type = models.CharField(max_length=50, choices=ACTION_CHOICES)

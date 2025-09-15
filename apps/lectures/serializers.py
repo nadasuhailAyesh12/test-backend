@@ -15,6 +15,10 @@ class LectureSerializer(serializers.ModelSerializer):
         if not user.is_authenticated:
             raise serializers.ValidationError("Please log in to continue.") 
             
-        teacher = Teacher.objects.get(user=user)
+        try:
+            teacher = user.lecture_teacher
+        except Teacher.DoesNotExist:
+            raise serializers.ValidationError("This user is not registered as a teacher.")
+
         validated_data['teacher'] = teacher
         return super().create(validated_data)

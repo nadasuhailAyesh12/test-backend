@@ -12,7 +12,7 @@ urlpatterns = [
     path('', include('apps.lectures.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('', include('apps.notifications.urls')),
+    path('notifications/', include('apps.notifications.urls')),
 
     # API documentation
     # path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
@@ -23,8 +23,8 @@ urlpatterns = [
     # path('api/auth/', include('rest_framework_simplejwt.urls')),
     # path('accounts/', include('allauth.urls')),
 
-    # API endpoints
-    # path('api/v1/', include('apps.users.urls')),
+        # API endpoints
+    path('api/v1/', include('apps.users.urls')),
     # path('api/v1/', include('apps.courses.urls')),
     # path('api/v1/', include('apps.lessons.urls')),
     # path('api/v1/', include('apps.exercises.urls')),

@@ -12,7 +12,7 @@ def send_lecture_notification(sender, instance, created, **kwargs):
         channel_layer = get_channel_layer()
         data = {
             "title": instance.title,
-            "teacher": instance.teacher.user.username,
+            "teacher": instance.teacher.user.get_full_name(),
             "message": "new Lecture"
         }
         async_to_sync(channel_layer.group_send)(

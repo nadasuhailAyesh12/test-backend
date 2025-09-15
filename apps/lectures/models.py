@@ -1,11 +1,10 @@
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-
+from django.conf import settings
     
 class Teacher(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='teacher')
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='lecture_teacher')
     name = models.CharField(max_length=100, unique=True , default="Mr. S")
     bio = models.TextField(blank=True)
     office_hours = models.CharField(max_length=255, blank=True)

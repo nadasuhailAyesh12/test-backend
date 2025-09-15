@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-
+from django.conf import settings
 User = get_user_model()
 
 class Notification(models.Model):
@@ -17,7 +17,7 @@ class Notification(models.Model):
         ('announcement', 'Announcement'),
     ]
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='notifications')    
     title = models.CharField(max_length=255)
     body = models.TextField(blank=True, null=True)
     action_type = models.CharField(max_length=50, choices=ACTION_TYPES)
