@@ -25,6 +25,8 @@ urlpatterns = [
 
         # API endpoints
     path('api/v1/', include('apps.users.urls')),
+    path('api/v1/', include('apps.assignments.urls')),
+
     # path('api/v1/', include('apps.courses.urls')),
     # path('api/v1/', include('apps.lessons.urls')),
     # path('api/v1/', include('apps.exercises.urls')),
